@@ -1,4 +1,6 @@
 import {createIcons,ArrowUpRight,ArrowDown,Plus} from 'lucide';
+// Keep previously shared section links working after the Running rename.
+if (location.hash === '#course') location.replace('#running');
 createIcons({icons:{ArrowUpRight,ArrowDown,Plus},attrs:{'aria-hidden':'true','stroke-width':1.5}});
 const menu=document.querySelector('.menu-toggle'),mobileNav=document.querySelector('#mobile-menu');
 function closeMenu(){mobileNav.hidden=true;menu.setAttribute('aria-expanded','false')}
