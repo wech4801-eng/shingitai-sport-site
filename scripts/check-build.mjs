@@ -3,6 +3,10 @@ import { resolve, dirname, extname } from 'node:path';
 const root = resolve('dist');
 const html = readFileSync(resolve(root, 'index.html'), 'utf8');
 const visibleText = html.replace(/<[^>]*>/g, ' ');
+for (const name of ['strength', 'nutrition']) {
+  if (!html.includes(`scene-backdrop ${name}-scene`)) throw new Error('Fond de chapitre absent: ' + name);
+  if (!existsSync(resolve(root, 'assets', `${name}-scene.webp`))) throw new Error('Visuel de fond absent: ' + name);
+}
 if (/\bcours(?:e|es)?\b/i.test(visibleText)) throw new Error('Ancien libellé dans les textes du site');
 if (!html.includes('id="running"') || !html.includes('href="#running"')) throw new Error('Section Running introuvable');
 if (!html.includes('Running') || (html.match(/<h1[ >]/g) || []).length !== 1) throw new Error('Titre ou contenu attendu absent');
