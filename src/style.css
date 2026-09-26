@@ -51,8 +51,10 @@
 @media(prefers-reduced-motion:reduce){.reviews-group[aria-hidden=true]{display:none}}
 
 /* Keep the chapter scenes behind, and separate from, the real app screens. */
-.strength-scene img{object-position:right center}
-.nutrition-scene img{object-position:right center}
+.strength-scene,.nutrition-scene{inset:32px -8px 60px}
+.strength-scene img,.nutrition-scene img{object-position:right center}
+.strength .strength-stage>.phone{transform:translateX(-48px) rotate(-4deg)}
+.nutrition-stage>.phone{transform:translateX(-48px) rotate(4deg)}
 .strength-scene::after,.nutrition-scene::after{background:linear-gradient(90deg,#161c1810,#161c1808)}
-@media(max-width:1100px){.strength-scene,.nutrition-scene{inset:110px 0 auto;aspect-ratio:3/2}.strength-scene img,.nutrition-scene img{object-position:center}.strength .strength-stage>.phone{transform:translateX(-16px) rotate(-4deg)}}
-@media(max-width:760px){.strength-scene,.nutrition-scene{inset-inline:-16px}.strength .strength-stage>.phone{transform:translateX(-16px)}}
+@media(min-width:761px) and (max-width:1100px){.strength-stage,.nutrition-stage{align-items:flex-start}.strength-scene,.nutrition-scene{inset:56px -8px 68px}.chapter .strength-stage>.phone,.chapter .nutrition-stage>.phone{--phone-width:220px;transform:none}.strength-stage figcaption,.nutrition-stage figcaption{align-self:center}}
+@media(max-width:760px){.strength-stage,.nutrition-stage{align-items:flex-start;padding-top:16px}.strength-scene,.nutrition-scene{inset:48px -16px auto;height:380px}.chapter .strength-stage>.phone,.chapter .nutrition-stage>.phone{--phone-width:210px;transform:none}.strength-stage figcaption,.nutrition-stage figcaption{align-self:center;margin-top:24px}}
